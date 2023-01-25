@@ -1,0 +1,52 @@
+﻿<ui:UiWindow x:Class="ComposerTrack.Views.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComposerTrack.ViewModels"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:res="clr-namespace:ComposerTrack.Properties"
+        mc:Ignorable="d"
+        Title="HomeWindow" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="#FF121213" WindowStyle="None" ResizeMode="NoResize"
+             d:DataContext="{x:Type local:HomeVM}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" MouseDown="RowDefinition_MouseDown"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FF19191A">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
+            </Border.Effect>
+        </Border>
+
+        <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}">
+            <ui:MenuItem Header="{x:Static res:Resources.FileHomeMenuItem}" Foreground="White" >
+                <ui:MenuItem Header="{x:Static res:Resources.CreateProjectHomeButton}"/>
+                <ui:MenuItem Header="Open..."/>
+            </ui:MenuItem>
+            <ui:MenuItem Header="{x:Static res:Resources.AboutHomeMenuItem}" Foreground="White">
+                <ui:MenuItem Header="About" Foreground="White"/>
+            </ui:MenuItem>
+        </Menu>
+        <Image Source="/ComposerTrack;component/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="closeWindow_MouseDown"/>
+
+        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="300" Background="#FF19191A" Margin="10,5,0,0" CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
+            </Border.Effect>
+            <Grid>
+                <ui:Button Content="{x:Static res:Resources.CreateProjectHomeButton}" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF1B1B1C"/>
+                <ui:Button Content="Settings" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF1B1B1C"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="675" Background="#FF19191A" Margin="315,5,0,0" CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
+            </Border.Effect>
+            <ListBox Height="490" Width="665" Background="{x:Null}"/>
+        </Border>
+    </Grid>
+</ui:UiWindow>
