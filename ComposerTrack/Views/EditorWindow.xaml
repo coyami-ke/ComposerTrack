@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ComposerTrack.Views"
         mc:Ignorable="d"
         Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen">
@@ -18,25 +19,25 @@
         </Grid.ColumnDefinitions>
 
         <Menu Grid.ColumnSpan="2" Margin="0,0,160,0" Background="{x:Null}">
-            <MenuItem Header="File" Foreground="White">
-                <MenuItem Header="Add">
-                    <MenuItem Header="Tiles..."/>
-                    <MenuItem Header="Decorations..."/>
+            <MenuItem Header="File" Foreground="White" Background="#FF101113">
+                <MenuItem Header="Add" Background="#FF101113">
+                    <MenuItem Header="Tiles..." Background="#FF101113"/>
+                    <MenuItem Header="Decorations..." Background="#FF101113"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Animation" Foreground="White"/>
+            <MenuItem Header="Animation" Foreground="White" Background="#FF101113"/>
         </Menu>
 
         <Border Grid.Column="0" Grid.Row="1" Background="#FF151516" CornerRadius="5" Margin="5,5,5,5">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="2" ShadowDepth="0.5"/>
             </Border.Effect>
-            <TreeView Grid.Column="0" Grid.Row="1">
+            <TreeView Grid.Column="0" Grid.Row="1" Background="#FF101113">
                 <TreeViewItem Header="Project name" IsExpanded="True">
                     <TreeViewItem Header="Tiles" IsExpanded="True">
                         <TreeViewItem.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="Add..."/>
+                            <ContextMenu Background="#FF101113">
+                                <MenuItem Header="Add..." Background="#FF101113"/>
                             </ContextMenu>
                         </TreeViewItem.ContextMenu>
                     </TreeViewItem>
@@ -55,6 +56,17 @@
             <Grid>
                 <Line Y1="0" Y2="10" X1="0" X2="0" Margin="200,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
                 <TextBlock Margin="197,0,0,10" Text="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
+                <Line Y1="0" Y2="10" X1="0" X2="0" Margin="280,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
+                <TextBlock Margin="277,0,0,10" Text="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
+                <Line Y1="0" Y2="10" X1="0" X2="0" Margin="360,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
+                <TextBlock Margin="354,0,0,10" Text="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
+                <Line Y1="0" Y2="10" X1="0" X2="0" Margin="440,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
+                <TextBlock Margin="434,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="20"/>
+                <Line Y1="0" Y2="10" X1="0" X2="0" Margin="520,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
+                <Line Y1="0" Y2="10" X1="0" X2="0" Margin="600,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.4" StrokeThickness="1"/>
+                <TextBlock Margin="514,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="25"/>
+                <TextBlock Margin="594,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="30"/>
+
             </Grid>
         </Border>
     </Grid>

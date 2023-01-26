@@ -17,8 +17,9 @@ namespace ComposerTrack.Models
         private float scaleX;
         private float scaleY;
         private string id;
-        private uint bit;
+        private uint beat;
         private bool isSelected;
+
 
         public float PositionX
         {
@@ -74,12 +75,12 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public uint Bit
+        public uint Beat
         {
-            get { return bit; }
+            get { return beat; }
             set
             {
-                bit = value;
+                beat = value;
                 OnPropertyChanged();
             }
         }

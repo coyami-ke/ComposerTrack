@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComposerTrack", "ComposerTrack\ComposerTrack.csproj", "{ED444D27-21F2-4455-B92A-B43D1595D974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComposerTrack Console", "ComposerTrack Console\ComposerTrack Console.csproj", "{02104DEF-4351-489B-BC91-FE746C1FC21C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +27,6 @@ Global
 		{ED444D27-21F2-4455-B92A-B43D1595D974}.Release|x64.Build.0 = Release|Any CPU
 		{ED444D27-21F2-4455-B92A-B43D1595D974}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED444D27-21F2-4455-B92A-B43D1595D974}.Release|x86.Build.0 = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|x64.Build.0 = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Debug|x86.Build.0 = Debug|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|x64.ActiveCfg = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|x64.Build.0 = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|x86.ActiveCfg = Release|Any CPU
-		{02104DEF-4351-489B-BC91-FE746C1FC21C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
