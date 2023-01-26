@@ -10,6 +10,8 @@ namespace ComposerTrack.API
 
         public Extension(string name, string id)
         {
+            Name = name;
+            ID = id;
         }
     }
 }
