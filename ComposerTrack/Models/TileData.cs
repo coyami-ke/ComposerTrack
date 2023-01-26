@@ -10,6 +10,8 @@ namespace ComposerTrack.Models
 {
     public class TileData : INotifyPropertyChanged
     {
+        private 
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {

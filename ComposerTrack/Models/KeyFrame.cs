@@ -93,50 +93,6 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public static KeyFrame operator +(KeyFrame value1, KeyFrame value2)
-        {
-            KeyFrame keyFrame = new();
-            keyFrame.ID = value1.ID;
-            keyFrame.Rotation = value1.Rotation + value2.Rotation;
-            keyFrame.PositionX = value1.PositionX + value2.PositionX;
-            keyFrame.PositionY = value1.PositionY + value2.PositionY;
-            keyFrame.ScaleX = value1.ScaleX + value2.ScaleX;
-            keyFrame.ScaleY = value1.ScaleY + value2.ScaleY;
-            return keyFrame;
-        }
-        public static KeyFrame operator -(KeyFrame value1, KeyFrame value2)
-        {
-            KeyFrame keyFrame = new();
-            keyFrame.ID = value1.ID;
-            keyFrame.Rotation = value1.Rotation - value2.Rotation;
-            keyFrame.PositionX = value1.PositionX - value2.PositionX;
-            keyFrame.PositionY = value1.PositionY - value2.PositionY;
-            keyFrame.ScaleX = value1.ScaleX - value2.ScaleX;
-            keyFrame.ScaleY = value1.ScaleY - value2.ScaleY;
-            return keyFrame;
-        }
-        public static KeyFrame operator *(KeyFrame value1, KeyFrame value2)
-        {
-            KeyFrame keyFrame = new();
-            keyFrame.ID = value1.ID;
-            keyFrame.Rotation = value1.Rotation * value2.Rotation;
-            keyFrame.PositionX = value1.PositionX * value2.PositionX;
-            keyFrame.PositionY = value1.PositionY * value2.PositionY;
-            keyFrame.ScaleX = value1.ScaleX * value2.ScaleX;
-            keyFrame.ScaleY = value1.ScaleY * value2.ScaleY;
-            return keyFrame;
-        }
-        public static KeyFrame operator /(KeyFrame value1, KeyFrame value2)
-        {
-            KeyFrame keyFrame = new();
-            keyFrame.ID = value1.ID;
-            keyFrame.Rotation = value1.Rotation / value2.Rotation;
-            keyFrame.PositionX = value1.PositionX / value2.PositionX;
-            keyFrame.PositionY = value1.PositionY / value2.PositionY;
-            keyFrame.ScaleX = value1.ScaleX / value2.ScaleX;
-            keyFrame.ScaleY = value1.ScaleY / value2.ScaleY;
-            return keyFrame;
-        }
 
 #nullable enable
         public event PropertyChangedEventHandler? PropertyChanged;
