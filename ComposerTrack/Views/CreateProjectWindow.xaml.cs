@@ -12,14 +12,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Wpf.Ui.Controls;
 
 namespace ComposerTrack.Views
 {
     /// <summary>
     /// Логика взаимодействия для CreateProjectWindow.xaml
     /// </summary>
-    public partial class CreateProjectWindow : UiWindow
+    public partial class CreateProjectWindow : Window
     {
         public CreateProjectWindow()
         {

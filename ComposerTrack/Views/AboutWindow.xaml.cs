@@ -12,14 +12,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Wpf.Ui.Controls;
 
 namespace ComposerTrack.Views
 {
     /// <summary>
     /// Логика взаимодействия для AboutWindow.xaml
     /// </summary>
-    public partial class AboutWindow : UiWindow
+    public partial class AboutWindow : Window
     {
         public AboutWindow()
         {

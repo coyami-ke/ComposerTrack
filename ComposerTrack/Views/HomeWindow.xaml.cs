@@ -18,7 +18,7 @@ namespace ComposerTrack.Views
     /// <summary>
     /// Логика взаимодействия для HomeWindow.xaml
     /// </summary>
-    public partial class HomeWindow : UiWindow
+    public partial class HomeWindow : Window
     {
         public HomeWindow()
         {

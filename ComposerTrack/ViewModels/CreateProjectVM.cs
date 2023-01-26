@@ -30,7 +30,7 @@ namespace ComposerTrack.ViewModels
             {
                 return createCommand ??= new RelayCommand(obj =>
                     {
-                        EditorWindow window = new(CreateProjectModel.Name, CreateProjectModel.ID, CreateProjectModel.Author);
+                        EditorWindow window = new();
                         window.Show();                    });
             }
         }

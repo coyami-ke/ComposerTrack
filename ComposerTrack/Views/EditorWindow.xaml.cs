@@ -18,9 +18,9 @@ namespace ComposerTrack.Views
     /// <summary>
     /// Логика взаимодействия для EditorWindow.xaml
     /// </summary>
-    public partial class EditorWindow : UiWindow
+    public partial class EditorWindow : Window
     {
-        public EditorWindow(string name, string id, string author)
+        public EditorWindow()
         {
             InitializeComponent();
         }
