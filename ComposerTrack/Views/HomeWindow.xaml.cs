@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace ComposerTrack.Views
     {
         public HomeWindow()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("ru");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("us");
             InitializeComponent();
         }
 
@@ -31,7 +32,7 @@ namespace ComposerTrack.Views
             this.DragMove();
         }
 
-        private void closeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Environment.Exit(0);
         }

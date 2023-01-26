@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels"
-        xmlns:res="clr-namespace:ComposerTrack.Properties"
         mc:Ignorable="d"
         Title="HomeWindow" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="#FF131517" WindowStyle="None" ResizeMode="NoResize"
-             d:DataContext="{x:Type local:HomeVM}">
+        d:DataContext="{x:Type local:HomeVM}">
     <Grid>
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="48" MouseDown="RowDefinition_MouseDown"/>
@@ -22,22 +22,22 @@
         </Border>
 
         <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}">
-            <MenuItem Header="{x:Static res:Resources.FileHomeMenuItem}" Foreground="White" >
-                <MenuItem Header="{x:Static res:Resources.CreateProjectHomeButton}"/>
+            <MenuItem Header="File" Foreground="White" >
+                <MenuItem Header="Create project"/>
                 <MenuItem Header="Open..."/>
             </MenuItem>
-            <MenuItem Header="{x:Static res:Resources.AboutHomeMenuItem}" Foreground="White">
+            <MenuItem Header="About program" Foreground="White">
                 <MenuItem Header="About" Foreground="White"/>
             </MenuItem>
         </Menu>
-        <Image Source="/ComposerTrack;component/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="closeWindow_MouseDown"/>
+        <Image Source="/ComposerTrack;component/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
 
         <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="300" Background="#FF101113" Margin="10,5,0,0" CornerRadius="10">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
             </Border.Effect>
             <Grid>
-                <Button Content="{x:Static res:Resources.CreateProjectHomeButton}" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517"/>
+                <Button Content="Create project" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517"/>
                 <Button Content="Settings" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF131517"/>
             </Grid>
         </Border>
