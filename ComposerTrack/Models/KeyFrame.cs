@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,31 +12,19 @@ namespace ComposerTrack.Models
 {
     public class KeyFrame : INotifyPropertyChanged
     {
-        private float positionX;
-        private float positionY;
+        private Vector2 position;
         private float rotation;
-        private float scaleX;
-        private float scaleY;
+        private Vector2 scale;
         private string id;
         private uint beat;
         private bool isSelected;
 
-
-        public float PositionX
+        public Vector2 Position
         {
-            get { return  positionX; } 
+            get { return position; }
             set
             {
-                positionX = value;
-                OnPropertyChanged();
-            }
-        }
-        public float PositionY
-        {
-            get { return positionY;}
-            set
-            {
-                positionY = value;
+                position = value;
                 OnPropertyChanged();
             }
         }
@@ -45,24 +34,6 @@ namespace ComposerTrack.Models
             set
             {
                 rotation = value;
-                OnPropertyChanged();
-            }
-        }
-        public float ScaleX
-        {
-            get { return scaleX; }
-            set
-            {
-                scaleX = value;
-                OnPropertyChanged();
-            }
-        }
-        public float ScaleY
-        {
-            get { return scaleY; }
-            set
-            {
-                scaleY = value;
                 OnPropertyChanged();
             }
         }
