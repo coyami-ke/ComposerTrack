@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
+using ComposerTrack.Views;
 
 #nullable disable
 namespace ComposerTrack.ViewModels
@@ -16,8 +17,25 @@ namespace ComposerTrack.ViewModels
     public class HomeVM : INotifyPropertyChanged   
     {
         private HomeModel selectedModel;
+        private RelayCommand createProjectCommand;
 
         public ObservableCollection<HomeModel> HomeModels { get; set; }
+        public RelayCommand CreateProjectCommand
+        {
+            get
+            {
+                return createProjectCommand ??
+                    (createProjectCommand = new RelayCommand(obj =>
+                    {
+                        CreateProjectWindow window = new();
+                        window.Show();
+                        HomeWindow homeWindow = obj as HomeWindow;
+                        homeWindow.Close();
+                    }
+                ));
+            }
+        }
+
         public HomeModel SelectedModel
         {
             get => selectedModel;
