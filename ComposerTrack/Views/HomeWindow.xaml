@@ -20,24 +20,59 @@
             </Border.Effect>
         </Border>
 
-        <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}">
-            <MenuItem Header="File" Foreground="White" >
-                <MenuItem Header="Create project"/>
-                <MenuItem Header="Open..."/>
+        <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF101113">
+            <MenuItem Header="File" Foreground="White" Background="#FF101113" >
+                <MenuItem Header="Create project" Background="#FF101113"/>
+                <MenuItem Header="Open..." Background="#FF101113"/>
             </MenuItem>
-            <MenuItem Header="About program" Foreground="White">
-                <MenuItem Header="About" Foreground="White"/>
+            <MenuItem Header="About program" Foreground="White" Background="#FF101113">
+                <MenuItem Header="About" Foreground="White" Background="#FF101113"/>
             </MenuItem>
         </Menu>
-        <Image Source="/ComposerTrack;component/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
+        <Image Source="/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown">
+            <Image.RenderTransform>
+                <RotateTransform/>
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1.1"
+                                                 AutoReverse="False" Duration="0:0:0.1" Storyboard.TargetProperty="ScaleX">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1"
+                                                 AutoReverse="True" Duration="0:0:0.1" Storyboard.TargetProperty="ScaleX">
+                                    <DoubleAnimation.EasingFunction>
+                                        <CubicEase EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <Border Height="48" Width="48" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown" CornerRadius="5"/>
 
         <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="300" Background="#FF101113" Margin="10,5,0,0" CornerRadius="10">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
             </Border.Effect>
             <Grid>
-                <Button Content="Create project" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517" Command="{Binding CreateProjectCommand}"/>
-                <Button Content="Settings" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF131517"/>
+                <Button Content="Create project" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517" Command="{Binding CreateProjectCommand}" BorderBrush="#FF339AF0"/>
+                <Button Content="Settings" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF131517" BorderBrush="#FF339AF0"/>
                 <Image Source="/Assets/settings.png" Height="48" Width="48" Margin="45,133,207,319"/>
                 <Image Source="/Assets/create-file.png" Height="40" Width="40" Margin="45,40,207,412"/>
             </Grid>
