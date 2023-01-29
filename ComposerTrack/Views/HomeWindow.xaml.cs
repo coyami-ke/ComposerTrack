@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComposerTrack.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,9 +22,9 @@ namespace ComposerTrack.Views
     /// </summary>
     public partial class HomeWindow : Window
     {
+
         public HomeWindow()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo("us");
             InitializeComponent();
         }
 

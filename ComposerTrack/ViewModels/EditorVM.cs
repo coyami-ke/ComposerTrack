@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Animation;
+
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
@@ -28,12 +29,12 @@ namespace ComposerTrack.ViewModels
         {
             get
             {
-                return addTileCommand ?? 
+                return addTileCommand ??
                     (addTileCommand = new RelayCommand(obj =>
                     {
                         AddTilesWindow window = new();
-                    }
-                ));
+
+                    }));
             }
         }
         public RelayCommand AddDecoCommand
@@ -46,7 +47,7 @@ namespace ComposerTrack.ViewModels
 
                     }
                 ));
-            }
+            }   
         }
         public RelayCommand DeleteTileCommand
         {
@@ -68,8 +69,7 @@ namespace ComposerTrack.ViewModels
         {
             get
             {
-                return deleteDecoCommand ??
-                    (deleteDecoCommand = new RelayCommand(obj =>
+                return deleteDecoCommand ??= new RelayCommand(obj =>
                     {
                         DecoData deco = obj as DecoData;
                         if (deco != null)
@@ -77,7 +77,7 @@ namespace ComposerTrack.ViewModels
                             Decorations.Remove(deco);
                         }
                     }
-                ));
+                );
             }
         }
         public ObservableCollection<KeyFrame> KeyFrames

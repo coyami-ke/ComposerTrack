@@ -37,6 +37,15 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
+        public Vector2 Scale
+        {
+            get { return scale; }
+            set
+            {
+                scale = value;
+                OnPropertyChanged();
+            }
+        }
         public string ID
         {
             get { return id; }

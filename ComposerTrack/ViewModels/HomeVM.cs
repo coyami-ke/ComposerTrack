@@ -1,4 +1,7 @@
-﻿using ComposerTrack.Models;
+﻿using ComposerTrack.Easing;
+using ComposerTrack.Models;
+using ComposerTrack.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,15 +9,15 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
-using ComposerTrack.Views;
+using System.Windows;
+using System.Windows.Media.Animation;
 
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class HomeVM : INotifyPropertyChanged   
+    public class HomeVM : INotifyPropertyChanged
     {
         private HomeModel selectedModel;
         private RelayCommand createProjectCommand;
@@ -24,15 +27,11 @@ namespace ComposerTrack.ViewModels
         {
             get
             {
-                return createProjectCommand ??
-                    (createProjectCommand = new RelayCommand(obj =>
-                    {
-                        CreateProjectWindow window = new();
-                        window.Show();
-                        HomeWindow homeWindow = obj as HomeWindow;
-                        homeWindow.Close();
-                    }
-                ));
+                return createProjectCommand ??= new ComposerTrack.ViewModels.RelayCommand(obj =>
+                {
+                    CreateProjectWindow window = new();
+                    window.Show();
+                });
             }
         }
 
@@ -52,8 +51,8 @@ namespace ComposerTrack.ViewModels
             JsonSerializer serializer = new JsonSerializer();
             HomeModels = (ObservableCollection<HomeModel>)serializer.Deserialize(stream, typeof(HomeModel));
         }
-#nullable enable
-        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
