@@ -18,26 +18,40 @@
         <Border Background="#FF101113"/>
 
         <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF101113">
-            <MenuItem Header="File" Foreground="White" Background="#FF101113" >
+            <MenuItem Header="File" Foreground="#E5FFFFFF" Background="#FF101113" >
                 <MenuItem Header="Create project" Background="#FF101113"/>
                 <MenuItem Header="Open..." Background="#FF101113"/>
             </MenuItem>
-            <MenuItem Header="About program" Foreground="White" Background="#FF101113">
+            <MenuItem Header="About program" Foreground="#E5FFFFFF" Background="#FF101113">
                 <MenuItem Header="About" Foreground="White" Background="#FF101113"/>
             </MenuItem>
         </Menu>
         <Image Source="/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
-        <Border Height="48" Width="48" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown" CornerRadius="5"/>
+        <Border Height="48" Width="48" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
 
-        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="300" Background="#FF101113" Margin="10,5,0,0" CornerRadius="10">
+        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="300" Background="#FF101113" Margin="10,5,0,0">
             <Grid>
-                <Button Content="Create project" Grid.Row="1" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#02FFFFFF" BorderBrush="#7F339AF0" Foreground="White" Command="{Binding CreateProjectCommand}"/>
-                <Button Content="Settings" Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#02FFFFFF" BorderBrush="#7F339AF0" Foreground="White"/>
-                <Image Source="/Assets/settings.png" Height="48" Width="48" Margin="45,133,207,319"/>
-                <Image Source="/Assets/create-file.png" Height="40" Width="40" Margin="45,40,207,412"/>
+                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
+                        Command="{Binding CreateProjectCommand}" Cursor="Hand" Style="{DynamicResource MaterialDesignFlatAccentButton}">
+                    <Button.Content>
+                        <Grid>
+                            <Image Source="/Assets/create-file.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-59,0,0,0"/>
+                            <TextBlock Text="Create project" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Background="#FF131517" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
+                        Cursor="Hand" Style="{DynamicResource MaterialDesignFlatAccentButton}">
+                    <Button.Content>
+                        <Grid>
+                            <Image Source="/Assets/settings.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-80,0,0,0"/>
+                            <TextBlock Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
             </Grid>
         </Border>
-        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="675" Background="#FF101113" Margin="315,5,0,0" CornerRadius="10">
+        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="675" Background="#FF101113" Margin="315,5,0,0" >
             <ListBox Height="490" Width="665" Background="{x:Null}"/>
         </Border>
     </Grid>

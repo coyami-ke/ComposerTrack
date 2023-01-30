@@ -16,7 +16,8 @@ namespace ComposerTrack.Models
 
         public string NameProject
         {
-            get => nameProject; set
+            get => nameProject;
+            set
             {
                 nameProject = value;
                 OnPropertyChanged("NameProject");

@@ -21,20 +21,21 @@ namespace ComposerTrack.ViewModels
     {
         private HomeModel selectedModel;
         private RelayCommand createProjectCommand;
+        private ObservableCollection<HomeModel> homeModels;
 
-        public ObservableCollection<HomeModel> HomeModels { get; set; }
+        
         public RelayCommand CreateProjectCommand
         {
             get
             {
-                return createProjectCommand ??= new ComposerTrack.ViewModels.RelayCommand(obj =>
+                return createProjectCommand ??= new RelayCommand(obj =>
                 {
                     CreateProjectWindow window = new();
-                    window.Show();
+                    window.ShowDialog();
+
                 });
             }
         }
-
         public HomeModel SelectedModel
         {
             get => selectedModel;
@@ -44,12 +45,23 @@ namespace ComposerTrack.ViewModels
                 OnPropertyChanged("SelectedModel");
             }
         }
+        public ObservableCollection<HomeModel> HomeModels
+        {
+            get { return homeModels; }
+            set
+            {
+                homeModels = value;
+                OnPropertyChanged();
+            }
+        }
 
         public HomeVM()
         {
-            StreamReader stream = new("config.json");
-            JsonSerializer serializer = new JsonSerializer();
-            HomeModels = (ObservableCollection<HomeModel>)serializer.Deserialize(stream, typeof(HomeModel));
+            if (!File.Exists("projects.json")) return;
+            FileStream stream = new("projects.json", FileMode.Append);
+            StreamReader reader = new(stream);
+            JsonSerializer serializer = new();
+            HomeModels = (ObservableCollection<HomeModel>)serializer.Deserialize(reader, typeof(ObservableCollection<HomeModel>));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

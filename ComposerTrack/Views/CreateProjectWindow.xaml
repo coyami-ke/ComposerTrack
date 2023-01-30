@@ -3,11 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels"
         mc:Ignorable="d"
-        Title="ComposerTrack - Create project" Height="450" Width="500" Background="#FF121213" WindowStyle="None"
-        d:DataContext="{d:DesignInstance Type=local:CreateProjectVM}">
+        Title="ComposerTrack - Create project" Height="450" Width="500" Background="#FF121213" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
@@ -37,6 +35,6 @@
         <TextBlock Text="Author" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="20,185,0,0" Foreground="White"/>
         <TextBox Height="40" Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,177,0,0" Text="{Binding Path=CreateProjectModel.Author}"/>
 
-        <Button Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Margin="20" Height="40" Width="200" Command="{Binding Path=CreateCommand}"/>
+        <Button Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Margin="20" Height="40" Width="200" Command="{Binding Path=CreateCommand}" Foreground="#E5FFFFFF"/>
     </Grid>
 </Window>
