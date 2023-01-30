@@ -80,6 +80,7 @@ namespace ComposerTrack.ViewModels
                 );
             }
         }
+
         public ObservableCollection<KeyFrame> KeyFrames
         {
             get { return keyFrames; }

@@ -8,6 +8,9 @@
         xmlns:local="clr-namespace:ComposerTrack.ViewModels" d:DataContext="{d:DesignInstance Type=local:EditorVM}"
         mc:Ignorable="d"
         Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:EditorVM/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
@@ -49,6 +52,12 @@
         </Border>
 
         <Border Grid.Column="1" Grid.Row="1" Background="#FF101113" CornerRadius="5" Margin="5,5,5,5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
         </Border>
         <Border Background="#FF101113" Grid.ColumnSpan="2" Margin="5,10,5,10" Grid.Row="2">
             <Border.Effect>

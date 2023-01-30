@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <None Remove="Assets\close-window.png" />
+    <None Remove="Assets\create-file.png" />
+    <None Remove="Assets\settings.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,5 +34,7 @@
 
   <ItemGroup>
     <Resource Include="Assets\close-window.png" />
+    <Resource Include="Assets\create-file.png" />
+    <Resource Include="Assets\settings.png" />
   </ItemGroup>
 </Project>

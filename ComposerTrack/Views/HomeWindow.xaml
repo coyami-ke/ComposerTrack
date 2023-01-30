@@ -31,8 +31,8 @@
 
         <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="300" Background="#FF101113" Margin="10,5,0,0">
             <Grid>
-                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF131517" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
-                        Command="{Binding CreateProjectCommand}" Cursor="Hand" Style="{DynamicResource MaterialDesignFlatAccentButton}">
+                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF101113" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
+                        Command="{Binding CreateProjectCommand}" Cursor="Hand" Style="{DynamicResource MaterialDesignOutlinedButton}">
                     <Button.Content>
                         <Grid>
                             <Image Source="/Assets/create-file.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-59,0,0,0"/>
@@ -40,8 +40,8 @@
                         </Grid>
                     </Button.Content>
                 </Button>
-                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Background="#FF131517" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
-                        Cursor="Hand" Style="{DynamicResource MaterialDesignFlatAccentButton}">
+                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF101113" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
+                        Cursor="Hand" Style="{DynamicResource MaterialDesignOutlinedButton}">
                     <Button.Content>
                         <Grid>
                             <Image Source="/Assets/settings.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-80,0,0,0"/>

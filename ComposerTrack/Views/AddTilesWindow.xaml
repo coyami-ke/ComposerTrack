@@ -17,8 +17,8 @@
 
         <Border Grid.Row="1" Background="#FF101113" CornerRadius="5">
             <Grid>
-                <TextBox HorizontalAlignment="Left" VerticalAlignment="Center" Height="48" Width="370" Margin="20" BorderBrush="#FF4187B3"/>
-                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Add" Margin="0,131,95,0"/>
+                <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="370" Margin="10,125,0,0" BorderBrush="#FF4187B3" Style="{DynamicResource MaterialDesignFilledTextBox}" Background="#FF131517"/>
+                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Content="Add" Margin="0,125,10,0" Width="195" Height="45"/>
             </Grid>
         </Border>
     </Grid>
