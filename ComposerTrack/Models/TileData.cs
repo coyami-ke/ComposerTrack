@@ -11,18 +11,18 @@ namespace ComposerTrack.Models
 {
     public class TileData : INotifyPropertyChanged
     {
-        private string id;
+        private int number;
         private Vector2 position;
         private float rotation;
         private Vector2 scale;
         public float opacity;
 
-        public string ID
+        public int Number
         {
-            get { return id; }
+            get { return number; }
             set
             {
-                id = value;
+                number = value;
                 OnPropertyChanged();
             }
         }

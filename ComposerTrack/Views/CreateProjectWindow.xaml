@@ -29,11 +29,11 @@
                  VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
 
         <TextBlock Text="Author" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="24,185,0,0" Foreground="White"/>
-        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,207,0,0" Text="{Binding Path=CreateProjectModel.Name}" Foreground="#E5FFFFFF" 
+        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,207,0,0" Text="{Binding Path=CreateProjectModel.Author}" Foreground="#E5FFFFFF" 
                  VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
 
         <Button Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Margin="20" Height="40" Width="200" Command="{Binding Path=CreateCommand}" Foreground="#E5FFFFFF"/>
-        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,62,0,0" Text="{Binding CreateProjectModel.ID}" Foreground="#E5FFFFFF" 
+        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,62,0,0" Text="{Binding CreateProjectModel.Name}" Foreground="#E5FFFFFF" 
             VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
     </Grid>
 </Window>

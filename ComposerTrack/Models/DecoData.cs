@@ -12,6 +12,7 @@ namespace ComposerTrack.Models
     public class DecoData : INotifyPropertyChanged
     {
         private string id;
+        private int tile;
         private string source;
         private Vector2 position;
         private float rotation;
@@ -24,6 +25,15 @@ namespace ComposerTrack.Models
             set
             {
                 id = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Tile
+        {
+            get { return tile; }
+            set
+            {
+                tile = value;
                 OnPropertyChanged();
             }
         }

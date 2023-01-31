@@ -5,12 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:local="clr-namespace:ComposerTrack.ViewModels" d:DataContext="{d:DesignInstance Type=local:EditorVM}"
+        xmlns:local="clr-namespace:ComposerTrack.ViewModels"
         mc:Ignorable="d"
         Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <local:EditorVM/>
-    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48"/>
@@ -30,6 +27,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Animation" Foreground="White" Background="#FF101113"/>
+            <MenuItem Header="About program"/>
         </Menu>
 
         <Border Grid.Column="0" Grid.Row="1" Background="#FF151516" CornerRadius="5" Margin="5,5,5,5">
@@ -37,11 +35,11 @@
                 <DropShadowEffect BlurRadius="2" ShadowDepth="0.5"/>
             </Border.Effect>
             <TreeView Grid.Column="0" Grid.Row="1" Background="#FF101113">
-                <TreeViewItem Header="Project name" IsExpanded="True">
+                <TreeViewItem Header="{Binding Project.Name}" IsExpanded="True">
                     <TreeViewItem Header="Tiles" IsExpanded="True" ItemsSource="{Binding Tiles}">
                         <TreeViewItem.ContextMenu>
                             <ContextMenu Background="#FF101113">
-                                <MenuItem Header="Add..." Background="#FF101113"/>
+                                <MenuItem Header="Add..." Background="#FF101113" Command="{Binding AddTileCommand}"/>
                             </ContextMenu>
                         </TreeViewItem.ContextMenu>
                     </TreeViewItem>

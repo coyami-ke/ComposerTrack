@@ -7,10 +7,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class CreateProjectVM : INotifyPropertyChanged
+    public class CreateProjectVM : INotifyPropertyChanged, IWindowData<CreateProjectModel>
     {
         private CreateProjectModel createProjectModel;
         private RelayCommand createCommand;
@@ -30,9 +31,29 @@ namespace ComposerTrack.ViewModels
             {
                 return createCommand ??= new RelayCommand(obj =>
                     {
-                        EditorWindow window = new();
-                        window.Show();                    });
+                        Data = this.CreateProjectModel;
+                        Sender = this;
+                        EditorWindow window = new(this);
+                        window.Show();
+
+                        if (createProjectModel.ID == "727" && createProjectModel.Name == "727" && createProjectModel.Author == "ARV")
+                        {
+                            MessageBox.Show("THIS IS TWENTY (c) ARV");
+                        }
+                        else if (CreateProjectModel.ID == "PivoGuru" && CreateProjectModel.Name == "sultan69")
+                        {
+                            MessageBox.Show("ВРЕМЯ ПЫЛЕСОСИТЬ!!!");
+                        }
+                    });
             }
+        }
+
+        public CreateProjectModel Data { get; set; }
+        public object Sender { get; set; }
+
+        public CreateProjectVM()
+        {
+            CreateProjectModel = new();
         }
 
 #nullable enable

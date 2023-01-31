@@ -1,4 +1,5 @@
-﻿using ComposerTrack.ViewModels;
+﻿using ComposerTrack.Models;
+using ComposerTrack.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace ComposerTrack.Views
 {
     public partial class EditorWindow : Window
     {
-        public EditorWindow()
+        public EditorWindow(IWindowData<CreateProjectModel> data)
         {
             InitializeComponent();
+            DataContext = new EditorVM(data);
         }
     }
 }

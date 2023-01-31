@@ -14,7 +14,7 @@ using System.Windows.Media.Animation;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class EditorVM : INotifyPropertyChanged
+    public class EditorVM : INotifyPropertyChanged, IWindowData<CreateProjectModel>
     {
         private ObservableCollection<KeyFrame> keyFrames;
         private EditorModel editorModel;
@@ -24,6 +24,7 @@ namespace ComposerTrack.ViewModels
         private RelayCommand addDecoCommand;
         private RelayCommand deleteTileCommand;
         private RelayCommand deleteDecoCommand;
+        private CreateProjectModel project;
 
         public RelayCommand AddTileCommand
         {
@@ -33,7 +34,7 @@ namespace ComposerTrack.ViewModels
                     (addTileCommand = new RelayCommand(obj =>
                     {
                         AddTilesWindow window = new();
-
+                        window.ShowDialog();
                     }));
             }
         }
@@ -117,10 +118,23 @@ namespace ComposerTrack.ViewModels
                 OnPropertyChanged();
             }
         }
+        public CreateProjectModel Project
+        {
+            get { return project; }
+            set
+            {
+                project = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public EditorVM()
+        public CreateProjectModel Data { get; set; }
+        public object Sender { get; set; }
+
+        public EditorVM(IWindowData<CreateProjectModel> data)
         {
             EditorModel = new EditorModel();
+            Project = data.Data;
             KeyFrames = new ObservableCollection<KeyFrame>();
         }
 

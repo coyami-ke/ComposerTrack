@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ComposerTrack.Easing
 {
+    /// <summary>
+    /// List of ease mode
+    /// </summary>
     public enum ListEase : byte
     {
         Linear,
