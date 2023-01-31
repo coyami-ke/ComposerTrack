@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComposerTrack.Easing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace ComposerTrack.Models
         private Vector2 position;
         private float rotation;
         private Vector2 scale;
-        public float opacity;
+        private float opacity;
+        private ListEase ease;
 
         public int Number
         {
@@ -59,6 +61,15 @@ namespace ComposerTrack.Models
             set
             {
                 opacity = value;
+                OnPropertyChanged();
+            }
+        }
+        public ListEase Ease
+        {
+            get { return ease; }
+            set
+            {
+                ease = value;
                 OnPropertyChanged();
             }
         }

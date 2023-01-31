@@ -30,24 +30,22 @@ namespace ComposerTrack.ViewModels
         {
             get
             {
-                return addTileCommand ??
-                    (addTileCommand = new RelayCommand(obj =>
+                return addTileCommand ??= new RelayCommand(obj =>
                     {
                         AddTilesWindow window = new();
                         window.ShowDialog();
-                    }));
+                    });
             }
         }
         public RelayCommand AddDecoCommand
         {
             get
             {
-                return addDecoCommand ??
-                    (addDecoCommand = new RelayCommand(obj =>
+                return addDecoCommand ??= new RelayCommand(obj =>
                     {
 
                     }
-                ));
+                );
             }   
         }
         public RelayCommand DeleteTileCommand
