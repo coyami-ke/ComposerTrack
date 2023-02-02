@@ -1,4 +1,5 @@
-﻿using ComposerTrack.Easing;
+﻿using AdofaiMapConverter;
+using ComposerTrack.Easing;
 using ComposerTrack.Models;
 using ComposerTrack.Views;
 using System;
@@ -18,6 +19,7 @@ namespace ComposerTrack.ViewModels
     {
         private ObservableCollection<KeyFrame> keyFrames;
         private EditorModel editorModel;
+        private CustomLevel level;
         private ObservableCollection<TileData> tiles;
         private ObservableCollection<DecoData> decorations;
         private RelayCommand addTileCommand;
@@ -34,16 +36,17 @@ namespace ComposerTrack.ViewModels
                     {
                         AddTilesWindow window = new();
                         window.ShowDialog();
+                        
                     });
             }
         }
+
         public RelayCommand AddDecoCommand
         {
             get
             {
                 return addDecoCommand ??= new RelayCommand(obj =>
                     {
-
                     }
                 );
             }   
@@ -52,8 +55,7 @@ namespace ComposerTrack.ViewModels
         {
             get
             {
-                return deleteTileCommand ??
-                    (deleteTileCommand = new RelayCommand(obj =>
+                return deleteTileCommand ??= new RelayCommand(obj =>
                     {
                         TileData tile = obj as TileData;
                         if (tile != null)
@@ -61,7 +63,7 @@ namespace ComposerTrack.ViewModels
                             Tiles.Remove(tile);
                         }
                     }
-                ));
+                );
             }
         }
         public RelayCommand DeleteDecoCommand
@@ -122,6 +124,15 @@ namespace ComposerTrack.ViewModels
             set
             {
                 project = value;
+                OnPropertyChanged();
+            }
+        }
+        public CustomLevel Level
+        {
+            get { return level; }
+            set
+            {
+                level = value;
                 OnPropertyChanged();
             }
         }

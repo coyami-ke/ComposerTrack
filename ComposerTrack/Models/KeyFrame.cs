@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdofaiMapConverter.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Vector2 = System.Numerics.Vector2;
 
 #nullable disable
 namespace ComposerTrack.Models
@@ -16,8 +18,11 @@ namespace ComposerTrack.Models
         private float rotation;
         private Vector2 scale;
         private string id;
-        private uint beat;
+        private int beat;
         private bool isSelected;
+        private int duration;
+        private int opacity;
+        private Ease ease;
 
         public Vector2 Position
         {
@@ -55,7 +60,7 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public uint Beat
+        public int Beat
         {
             get { return beat; }
             set
@@ -70,6 +75,33 @@ namespace ComposerTrack.Models
             set
             {
                 isSelected = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Duration
+        {
+            get { return duration; }
+            set
+            {
+                duration = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Opacity
+        {
+            get { return opacity; }
+            set
+            {
+                opacity = value;
+                OnPropertyChanged();
+            }
+        }
+        public Ease Ease
+        {
+            get { return ease; }
+            set
+            {
+                ease = value;
                 OnPropertyChanged();
             }
         }

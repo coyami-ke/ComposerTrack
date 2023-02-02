@@ -12,13 +12,13 @@ namespace ComposerTrack.ViewModels
     public static class DestroyAnimation
     {
         /// <summary>
-        /// Create a keyframe with effect of destroy
+        /// Creates a keyframe with effect of destroy
         /// </summary>
         /// <param name="keyFrame">KeyFrame</param>
         /// <param name="intensivity">Intensivity. Multiplies the values</param>
         /// <param name="withRotation">Animation with rotation</param>
         /// <returns>Result</returns>
-        public static KeyFrame Destroy(KeyFrame keyFrame, byte intensivity = 1, bool withRotation = true)
+        public static KeyFrame Destroy(KeyFrame keyFrame, byte intensivity = 1, bool withRotation = true, uint duration = 2)
         {
             KeyFrame _keyFrame = keyFrame;
 
@@ -74,7 +74,7 @@ namespace ComposerTrack.ViewModels
             return result.ToArray();
         }
         /// <summary>
-        /// Create a keyframes with effect of destroy
+        /// Creates a keyframes with effect of destroy
         /// </summary>
         /// <param name="tiles">Tiles for creating of keyframes</param>
         /// <param name="intensivity">Intensivity. Multiplies the values</param>
@@ -90,7 +90,7 @@ namespace ComposerTrack.ViewModels
                 KeyFrame keyFrame = new()
                 {
                     Position = tile.Position,
-                    Rotation = tile.Rotation
+                    Rotation = tile.Rotation,
                 };
                 result.Add(Destroy(keyFrame, intensivity, withRotation));
             }
@@ -98,7 +98,7 @@ namespace ComposerTrack.ViewModels
             return result.ToArray();
         }
         /// <summary>
-        /// Create a keyframes with effect of destroy
+        /// Creates a keyframes with effect of destroy
         /// </summary>
         /// <param name="tiles">Decorations for creating of keyframes</param>
         /// <param name="intensivity">Intensivity. Multiplies the values</param>

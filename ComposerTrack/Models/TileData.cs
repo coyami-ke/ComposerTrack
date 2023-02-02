@@ -12,13 +12,12 @@ namespace ComposerTrack.Models
 {
     public class TileData : INotifyPropertyChanged
     {
+        private float angle;
         private int number;
         private Vector2 position;
         private float rotation;
         private Vector2 scale;
         private float opacity;
-        private ListEase ease;
-
         public int Number
         {
             get { return number; }
@@ -64,12 +63,12 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public ListEase Ease
+        public float Angle
         {
-            get { return ease; }
+            get { return angle; }
             set
             {
-                ease = value;
+                angle = value;
                 OnPropertyChanged();
             }
         }

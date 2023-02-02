@@ -1,6 +1,7 @@
 ﻿using ComposerTrack.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class AddTileVM : INotifyPropertyChanged, IWindowData<List<TileData>>
+    public class AddTileVM : INotifyPropertyChanged
     {
-        public List<TileData> Data { get; set; }
-        public object Sender { get; set; }
+        private ObservableCollection<TileData> tiles;
+        private RelayCommand addTileCommmand;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
