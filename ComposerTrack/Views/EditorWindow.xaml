@@ -7,87 +7,48 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
-            <RowDefinition Height="139*"/>
-            <RowDefinition Height="45*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Menu Grid.ColumnSpan="2" Margin="0,0,160,0" Background="{x:Null}">
-            <MenuItem Header="File" Foreground="White" Background="#FF101113">
-                <MenuItem Header="Add" Background="#FF101113">
-                    <MenuItem Header="Tiles..." Background="#FF101113" Command="{Binding AddTileCommand}"/>
-                    <MenuItem Header="Decorations..." Background="#FF101113" Command="{Binding AddDecoCommand}"/>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Animation" Foreground="White" Background="#FF101113"/>
-            <MenuItem Header="About program"/>
-        </Menu>
-
-        <Border Grid.Column="0" Grid.Row="1" Background="#FF151516" CornerRadius="5" Margin="5,5,5,5">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="0.5"/>
-            </Border.Effect>
-            <TreeView Grid.Column="0" Grid.Row="1" Background="#FF101113">
-                <TreeViewItem Header="{Binding Project.Name}" IsExpanded="True">
-                    <TreeViewItem Header="Tiles" IsExpanded="True" ItemsSource="{Binding Tiles}">
-                        <TreeViewItem.ContextMenu>
-                            <ContextMenu Background="#FF101113">
-                                <MenuItem Header="Add..." Background="#FF101113" Command="{Binding AddTileCommand}"/>
-                            </ContextMenu>
-                        </TreeViewItem.ContextMenu>
+        Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" AllowsTransparency="True">
+    <Border CornerRadius="5" Background="#E5131517">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Background="#FF101114" Grid.ColumnSpan="2">
+                <Menu>
+                    <MenuItem Header="File">
+                        <MenuItem Header="New"></MenuItem>
+                        <MenuItem Header="Open"></MenuItem>
+                        <MenuItem Header="Save"></MenuItem>
+                        <MenuItem Header="Save As"></MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Close"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Edit">
+                        <MenuItem Header="Undo"></MenuItem>
+                        <MenuItem Header="Redo"></MenuItem>
+                        <MenuItem Header="Cut"></MenuItem>
+                        <MenuItem Header="Copy"></MenuItem>
+                        <MenuItem Header="Paste"></MenuItem>
+                        <MenuItem Header="Select All"></MenuItem>
+                    </MenuItem>
+                </Menu>
+            </Border>
+            <Border Background="#FF101114" Grid.Row="1" Margin="5,5,5,5">
+                <TreeView>
+                    <TreeViewItem IsExpanded="True" Header="{Binding Project.Name}">
+                        <TreeViewItem Header="Tiles"/>
+                        <TreeViewItem Header="Decorations"/>
+                        <TreeViewItem Header="Animations"/>
                     </TreeViewItem>
-                    <TreeViewItem Header="Decorations" IsExpanded="True"/>
-                    <TreeViewItem Header="Animations" IsExpanded="True"/>
-                </TreeViewItem>
-            </TreeView>
-        </Border>
-
-        <Border Grid.Column="1" Grid.Row="1" Background="#FF101113" CornerRadius="5" Margin="5,5,5,5">
-            <Grid>
-                <Border Height="20" Width="20" Background="#FF131417" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Border Height="20" Width="20" Background="#FF131417" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="40,40,0,0"/>
-            </Grid>
-        </Border>
-        <Border Background="#FF101113" Grid.ColumnSpan="2" Margin="5,10,5,10" Grid.Row="2">
-            <Border.Effect>
-                <DropShadowEffect ShadowDepth="0.5" BlurRadius="2"/>
-            </Border.Effect>
-            <Grid>
-
-
-                <Border Height="20" Margin="200,23,10,72" CornerRadius="5" Background="#FF131517">
-                    <Grid>
-
-                    </Grid>
-                </Border>
-                <Border Height="20" Margin="200,58,10,37" CornerRadius="5" Background="#FF131517">
-                    <Grid/>
-                </Border>
-                <TextBlock Text="Tiles" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,23,0,0"/>
-                <TextBlock Text="Decorations" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,58,0,0"/>
-
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="200,0,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="197,0,0,10" Text="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="280,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="277,0,0,10" Text="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="360,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="354,0,0,10" Text="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="440,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="434,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="20"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="520,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="600,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="514,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="25"/>
-                <TextBlock Margin="594,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="30"/>
-                <Line Y1="0" Y2="115" X1="0" X2="0" Margin="680,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Stroke="White" Opacity="0.1" StrokeThickness="1"/>
-                <TextBlock Margin="674,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" Opacity="0.9" Text="35"/>
-            </Grid>
-        </Border>
-    </Grid>
+                </TreeView>
+            </Border>
+            <Border Background="#FF101114" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,0,5,0"/>
+        </Grid>
+    </Border>
 </Window>

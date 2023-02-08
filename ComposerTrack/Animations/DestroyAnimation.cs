@@ -1,13 +1,15 @@
-﻿using ComposerTrack.Models;
+﻿using AdofaiMapConverter.Types;
+using ComposerTrack.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Vector2 = System.Numerics.Vector2;
 
 #nullable disable
-namespace ComposerTrack.ViewModels
+namespace ComposerTrack.Animations
 {
     public static class DestroyAnimation
     {
@@ -18,7 +20,7 @@ namespace ComposerTrack.ViewModels
         /// <param name="intensivity">Intensivity. Multiplies the values</param>
         /// <param name="withRotation">Animation with rotation</param>
         /// <returns>Result</returns>
-        public static KeyFrame Destroy(KeyFrame keyFrame, byte intensivity = 1, bool withRotation = true, uint duration = 2)
+        public static KeyFrame Destroy(KeyFrame keyFrame, byte intensivity = 1, bool withRotation = true)
         {
             KeyFrame _keyFrame = keyFrame;
 
@@ -31,33 +33,31 @@ namespace ComposerTrack.ViewModels
                 Vector2 str = _keyFrame.Position;
                 str.X += 2f * intensivity;
                 str.Y += 2f * intensivity;
-                if (withRotation) _keyFrame.Rotation += 10f * intensivity;
             }
             if (_keyFrame.Rotation >= 90 && _keyFrame.Rotation < 180)
             {
                 Vector2 str = _keyFrame.Position;
                 str.X += 2f * intensivity;
                 str.Y += -2f * intensivity;
-                if (withRotation) _keyFrame.Rotation += -10f * intensivity;
             }
             if (_keyFrame.Rotation >= 180 && _keyFrame.Rotation < 270)
             {
                 Vector2 str = _keyFrame.Position;
                 str.X += -2f * intensivity;
                 str.Y += -2f * intensivity;
-                if (withRotation) _keyFrame.Rotation += -10f * intensivity;
             }
             if (_keyFrame.Rotation >= 270 && _keyFrame.Rotation < 360)
             {
                 Vector2 str = _keyFrame.Position;
                 str.X += -2f * intensivity;
                 str.Y += 2f * intensivity;
-                if (withRotation) _keyFrame.Rotation += 10f * intensivity;
             }
+            if (withRotation) _keyFrame.Rotation += 10f * intensivity;
+
             return _keyFrame;
         }
         /// <summary>
-        /// Create a keyframes with effect of destroy
+        /// Creates a keyframes with effect of destroy
         /// </summary>
         /// <param name="keyFrames">KeyFrames</param>
         /// <param name="intensivity">Intensivity. Multiplies the values</param>
@@ -82,17 +82,28 @@ namespace ComposerTrack.ViewModels
         /// <returns>Result</returns>
         public static KeyFrame[] Destroy(TileData[] tiles, byte intensivity = 1, bool withRotation = true)
         {
-            List<KeyFrame> result = new();
-            
+            if (tiles.Length == 0)
+            {
+                return Array.Empty<KeyFrame>();
+            }
+
+            List<KeyFrame> result = new List<KeyFrame>(tiles.Length);
+            KeyFrame[] keyFrames = new KeyFrame[tiles.Length];
+            int index = 0;
+
             foreach (TileData tile in tiles)
             {
                 if (tile is null) continue;
-                KeyFrame keyFrame = new()
+                keyFrames[index++] = new KeyFrame
                 {
                     Position = tile.Position,
                     Rotation = tile.Rotation,
                 };
-                result.Add(Destroy(keyFrame, intensivity, withRotation));
+            }
+
+            for (int i = 0; i < index; i++)
+            {
+                result.Add(Destroy(keyFrames[i], intensivity, withRotation));
             }
 
             return result.ToArray();

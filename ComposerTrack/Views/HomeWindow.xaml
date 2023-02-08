@@ -5,54 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels" 
         mc:Ignorable="d"
-        Title="HomeWindow" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="#FF131517" WindowStyle="None" ResizeMode="NoResize">
+        Title="HomeWindow" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
     <Window.DataContext>
         <local:HomeVM/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" MouseDown="RowDefinition_MouseDown"/>
+            <RowDefinition Height="48"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Border Background="#FF101113"/>
-
-        <Menu Margin="32,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF101113">
-            <MenuItem Header="File" Foreground="#E5FFFFFF" Background="#FF101113" >
-                <MenuItem Header="Create project" Background="#FF101113"/>
-                <MenuItem Header="Open..." Background="#FF101113"/>
-            </MenuItem>
-            <MenuItem Header="About program" Foreground="#E5FFFFFF" Background="#FF101113">
-                <MenuItem Header="About" Foreground="White" Background="#FF101113"/>
-            </MenuItem>
-        </Menu>
-        <Image Source="/Assets/close-window.png" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
-        <Border Height="48" Width="48" HorizontalAlignment="Right" MouseDown="CloseWindow_MouseDown"/>
-
-        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="300" Background="#FF101113" Margin="10,5,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="361"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#FF131517" Opacity="0.9">
+            <Border.Effect>
+                <BlurEffect Radius="2"/>
+            </Border.Effect>
+        </Border>
+        <Border Background="#FF101113" Grid.ColumnSpan="2">
             <Grid>
-                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Background="#FF101113" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
-                        Command="{Binding CreateProjectCommand}" Cursor="Hand" Style="{DynamicResource MaterialDesignOutlinedButton}">
+                <Menu VerticalAlignment="Top">
+                    <MenuItem Header="File" Background="#FF101113">
+                        <MenuItem Header="Create project...    Ctrl + Shift + N"/>
+                        <MenuItem Header="Open project...      Ctrl + Shift + O"/>
+                        <Separator/>
+                        <MenuItem Header="Exit                          Alt + F4"/>
+                    </MenuItem>
+                    <MenuItem Header="Service" Background="#FF101113">
+                        <MenuItem Header="Settings..."/>
+                        <MenuItem Header="About program..."/>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+        </Border>
+        <Border Background="#FF101113" Grid.Row="1" CornerRadius="5" Margin="5,5,5,10">
+            <Grid>
+                <Button Margin="10,14,10,393" Style="{DynamicResource ButtonStyle}" HorizontalContentAlignment="Center" Command="{Binding CreateProjectCommand}">
                     <Button.Content>
                         <Grid>
-                            <Image Source="/Assets/create-file.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-59,0,0,0"/>
-                            <TextBlock Text="Create project" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Source="/Assets/create-file.png" Height="54" Width="54" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-24,0,0,0"/>
+                            <TextBlock Text="Create project" Margin="40,-1,19,31" FontSize="20"/>
+                            <TextBlock Text="Create your own project to get started." Opacity="0.9" FontSize="14" Margin="40,30,-40,10"/>
                         </Grid>
                     </Button.Content>
                 </Button>
-                <Button Height="88" Width="270" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Background="#FF101113" BorderBrush="#7F339AF0" Foreground="#E5FFFFFF"
-                        Cursor="Hand" Style="{DynamicResource MaterialDesignOutlinedButton}">
+                <Button Height="100" Margin="10,119,10,288" Style="{DynamicResource ButtonStyle}" HorizontalContentAlignment="Center">
                     <Button.Content>
                         <Grid>
-                            <Image Source="/Assets/settings.png" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="-80,0,0,0"/>
-                            <TextBlock Text="Settings" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image Source="/Assets/settings.png" Height="54" Width="54" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-29,1,0,0"/>
+                            <TextBlock Text="Settings" Margin="30,1,30,29" FontSize="20"/>
+                            <TextBlock Text="Configure the program to your liking." Opacity="0.9" FontSize="14" Margin="30,30,-30,10"/>
                         </Grid>
                     </Button.Content>
                 </Button>
             </Grid>
         </Border>
-        <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="507" Width="675" Background="#FF101113" Margin="315,5,0,0" >
-            <ListBox Height="490" Width="665" Background="{x:Null}"/>
-        </Border>
+        <Border CornerRadius="5" Grid.Row="1" Margin="0,5,10,10" Background="#FF101113" Grid.Column="1"/>
     </Grid>
 </Window>

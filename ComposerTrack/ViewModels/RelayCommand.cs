@@ -10,6 +10,9 @@ using System.Windows.Input;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
+    /// <summary>
+    /// Base command
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Action<object> execute;
@@ -21,6 +24,11 @@ namespace ComposerTrack.ViewModels
             remove { CommandManager.RequerySuggested -= value; }
         }
 
+        /// <summary>
+        /// Constructor RelayCommand
+        /// </summary>
+        /// <param name="execute">Executing code</param>
+        /// <param name="canExecute">Ever null. Do not touch.</param>
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             this.execute = execute;

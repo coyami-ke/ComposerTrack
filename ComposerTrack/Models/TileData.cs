@@ -17,7 +17,7 @@ namespace ComposerTrack.Models
         private Vector2 position;
         private float rotation;
         private Vector2 scale;
-        private float opacity;
+        private int opacity;
         public int Number
         {
             get { return number; }
@@ -54,7 +54,7 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public float Opacity
+        public int Opacity
         {
             get { return opacity; }
             set

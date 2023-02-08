@@ -23,6 +23,8 @@ namespace ComposerTrack.Models
         private int duration;
         private int opacity;
         private Ease ease;
+        private string tag;
+        private int startEndTile;
 
         public Vector2 Position
         {
@@ -102,6 +104,24 @@ namespace ComposerTrack.Models
             set
             {
                 ease = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Tag
+        {
+            get { return tag; }
+            set
+            {
+                tag = value;
+                OnPropertyChanged();
+            }
+        }
+        public int StartEndTile
+        {
+            get { return startEndTile; }
+            set
+            {
+                startEndTile = value;
                 OnPropertyChanged();
             }
         }

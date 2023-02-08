@@ -5,35 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels"
         mc:Ignorable="d"
-        Title="ComposerTrack - Create project" Height="450" Width="500" Background="#FF121213" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="ComposerTrack - Create project" Height="500" Width="500" Background="#FF121213" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Window.DataContext>
         <local:CreateProjectVM/>
     </Window.DataContext>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <Border Background="#FF101113">
-            <Grid>
-                <Image Height="48" HorizontalAlignment="Right" Source="/ComposerTrack;component/Assets/close-window.png" MouseDown="closeWindow_MouseDown"/>
-            </Grid>
-        </Border>
-        <Border Background="#FF101113" Grid.Row="1" CornerRadius="5" Margin="0,5,0,0"/>
-
-        <TextBlock Text="Name project" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="24,40,0,0" Foreground="#E5FFFFFF"/>
-
-        <TextBlock Text="ID project" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="24,105,0,0" Foreground="White"/>
-        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,135,0,0" Text="{Binding Path=CreateProjectModel.ID}" Foreground="#E5FFFFFF" 
-                 VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
-
-        <TextBlock Text="Author" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="24,185,0,0" Foreground="White"/>
-        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,207,0,0" Text="{Binding Path=CreateProjectModel.Author}" Foreground="#E5FFFFFF" 
-                 VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
-
-        <Button Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Margin="20" Height="40" Width="200" Command="{Binding Path=CreateCommand}" Foreground="#E5FFFFFF"/>
-        <TextBox Width="300" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,62,0,0" Text="{Binding CreateProjectModel.Name}" Foreground="#E5FFFFFF" 
-            VerticalContentAlignment="Center" Background="#FF131517" BorderBrush="#FF101113"/>
-    </Grid>
+    <Border CornerRadius="5" Background="#FF131517">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Background="#FF101113">
+            </Border>
+            <Border Grid.Row="1" Background="#FF101113" CornerRadius="5" Margin="5,9,5,1">
+                <Grid>
+                    <Button Style="{DynamicResource MaterialDesignOutlinedButton}" Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Height="40" Width="170" Foreground="#E5FFFFFF" BorderBrush="#FF34799E" FontWeight="Normal"/>
+                    <TextBlock Text="Name project" Foreground="White" FontSize="16" Margin="20,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,93,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.Name}"/>
+                    <TextBlock Text="ID" Foreground="White" FontSize="16" Margin="20,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,171,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.ID}"/>
+                    <TextBlock Text="Author" Foreground="White" FontSize="16" Margin="20,243,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,264,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.Author}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

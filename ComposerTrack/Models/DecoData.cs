@@ -11,20 +11,22 @@ namespace ComposerTrack.Models
 {
     public class DecoData : INotifyPropertyChanged
     {
-        private string id;
+        private string tag;
         private int tile;
         private string source;
         private Vector2 position;
         private float rotation;
         private Vector2 scale;
         private float opacity;
+        private string color;
+        private int beat;
 
-        public string ID
+        public string Tag
         {
-            get { return id; }
+            get { return tag; }
             set
             {
-                id = value;
+                tag = value;
                 OnPropertyChanged();
             }
         }
@@ -79,6 +81,24 @@ namespace ComposerTrack.Models
             set
             {
                 opacity = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Color
+        {
+            get { return color; }
+            set
+            {
+                color = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Beat
+        {
+            get { return beat; }
+            set
+            {
+                beat = value;
                 OnPropertyChanged();
             }
         }

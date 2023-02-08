@@ -17,13 +17,18 @@ using System.Windows.Media.Animation;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
+    /// <summary>
+    /// HomeVM.
+    /// </summary>
     public class HomeVM : INotifyPropertyChanged
     {
         private HomeModel selectedModel;
         private RelayCommand createProjectCommand;
         private ObservableCollection<HomeModel> homeModels;
 
-        
+        /// <summary>
+        /// Command for button Create project.
+        /// </summary>
         public RelayCommand CreateProjectCommand
         {
             get
@@ -36,6 +41,9 @@ namespace ComposerTrack.ViewModels
                 });
             }
         }
+        /// <summary>
+        /// Selected project
+        /// </summary>
         public HomeModel SelectedModel
         {
             get => selectedModel;
@@ -45,6 +53,9 @@ namespace ComposerTrack.ViewModels
                 OnPropertyChanged("SelectedModel");
             }
         }
+        /// <summary>
+        /// List of created projects
+        /// </summary>
         public ObservableCollection<HomeModel> HomeModels
         {
             get { return homeModels; }
@@ -55,6 +66,9 @@ namespace ComposerTrack.ViewModels
             }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public HomeVM()
         {
             if (!File.Exists("projects.json")) return;
