@@ -1,4 +1,5 @@
 ﻿using ComposerTrack.Models;
+using ComposerTrack.Views.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ComposerTrack.ViewModels.Editor
     public class TimeLine
     {
         public List<KeyFrame> KeyFrames { get; set; }
-        public List<Border> Borders { get; set; }
+        public List<KeyFrameControl> Controls { get; set; }
         public TimeLine(KeyFrame[] keyFrames)
         {
             var orderedKeyFrames = from i in keyFrames
@@ -21,12 +22,7 @@ namespace ComposerTrack.ViewModels.Editor
                                    select i;
             foreach (KeyFrame keyFrame in orderedKeyFrames)
             {
-                Border border = new();
-                border.Height = 34;
-                border.Width = 34;
-                border.Margin = new System.Windows.Thickness(16, 0, 0 , 0 );
-                border.Background = new SolidColorBrush(Color.FromRgb(179, 129, 55));
-                
+                KeyFrameControl control = new();
             }
         }
     }

@@ -20,7 +20,7 @@ namespace ComposerTrack.Models
         private string id;
         private int beat;
         private bool isSelected;
-        private int duration;
+        private double duration;
         private int opacity;
         private Ease ease;
         private string tag;
@@ -80,7 +80,7 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
-        public int Duration
+        public double Duration
         {
             get { return duration; }
             set
