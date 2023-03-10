@@ -19,45 +19,30 @@ namespace ComposerTrack.Animations
         /// <param name="intensivity"></param>
         /// <param name="withRotation"></param>
         /// <returns></returns>
-        public static TileData Build(TileData tileData, int intensivity = 1, bool withRotation = true)
+        /*public static TileData Build(TileData tileData, int intensivity = 1, bool withRotation = true)
         {
-            List<KeyFrame> keyFrame = new();
-            TileData tile = tileData;
+            if (tileData is null) throw new ArgumentNullException(nameof(tileData));
 
-            if (tile is null) return null;
+            TileData result = tileData;
 
-            Vector2 str = new(tile.Position.X, tile.Position.Y);
+            if (result.Angle < 0) result.Angle += 360f;
 
-            if (tile.Angle < 0) tile.Angle += 360f;
-
-            if (tile.Angle >= 0 && tile.Angle < 90)
+            if (result.Angle >= 0 && result.Angle < 90)
             {
-                str.X += 0f * intensivity;
-                str.Y += 1f * intensivity;
-                if (withRotation)
-                {
 
-                }
             }
-            if (tile.Angle >= 90 && tile.Angle < 180)
+            if (result.Angle >= 90 && result.Angle < 180)
             {
-                str.X += 1f * intensivity;
-                str.Y += 1f * intensivity;
-            }
-            if (tile.Angle >= 180 && tile.Angle < 270)
-            {
-                str.X += 1f * intensivity;
-                str.Y += 0f * intensivity;
-            }
-            if (tile.Angle >= 270 && tile.Angle < 360)
-            {
-                str.X += -1f * intensivity;
-                str.Y += 0f * intensivity;
-            }
 
-            tile.Position = str;
+            }
+            if (result.Angle >= 180 && result.Angle < 270)
+            {
 
-            return tile;
-        }
+            }
+            if (result.Angle >= 270 && result.Angle < 360)
+            {
+
+            }
+        }*/
     }
 }

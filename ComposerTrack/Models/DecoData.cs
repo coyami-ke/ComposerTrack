@@ -20,6 +20,7 @@ namespace ComposerTrack.Models
         private float opacity;
         private string color;
         private int beat;
+        private bool isSelected;
 
         public string Tag
         {
@@ -99,6 +100,15 @@ namespace ComposerTrack.Models
             set
             {
                 beat = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set
+            {
+                isSelected = value;
                 OnPropertyChanged();
             }
         }

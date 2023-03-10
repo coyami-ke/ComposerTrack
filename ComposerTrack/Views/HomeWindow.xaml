@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels" 
         mc:Ignorable="d"
-        Title="HomeWindow" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
+        Title="ComposerTrack - Home" Height="570" Width="1000" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
     <Window.DataContext>
         <local:HomeVM/>
     </Window.DataContext>

@@ -25,6 +25,7 @@ namespace ComposerTrack.Models
         private Ease ease;
         private string tag;
         private int startEndTile;
+        private float offset;
 
         public Vector2 Position
         {
@@ -122,6 +123,15 @@ namespace ComposerTrack.Models
             set
             {
                 startEndTile = value;
+                OnPropertyChanged();
+            }
+        }
+        public float Offset
+        {
+            get { return offset; }
+            set
+            {
+                offset = value;
                 OnPropertyChanged();
             }
         }

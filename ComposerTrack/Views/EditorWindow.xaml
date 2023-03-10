@@ -7,8 +7,11 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:ComposerTrack.ViewModels"
         mc:Ignorable="d"
-        Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" AllowsTransparency="True">
+        xmlns:editor="clr-namespace:ComposerTrack.Views.Controls"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        Title="EditorWindow" Height="600" Width="1000" ResizeMode="CanResize" Background="#FF131517" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Border CornerRadius="5" Background="#E5131517">
+        <!--Grid-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48"/>
@@ -16,10 +19,12 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
-            <Border Background="#FF101114" Grid.ColumnSpan="2">
+            <!--Head-->
+            <Border Background="#FF101114" Grid.ColumnSpan="3">
                 <Menu>
                     <MenuItem Header="File">
                         <MenuItem Header="New"></MenuItem>
@@ -39,6 +44,7 @@
                     </MenuItem>
                 </Menu>
             </Border>
+            <!--Explorer-->
             <Border Background="#FF101114" Grid.Row="1" Margin="5,5,5,5">
                 <TreeView>
                     <TreeViewItem IsExpanded="True" Header="{Binding Project.Name}">
@@ -48,7 +54,73 @@
                     </TreeViewItem>
                 </TreeView>
             </Border>
-            <Border Background="#FF101114" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,0,5,0"/>
+            <!--TimeLine-->
+            <Border Background="#FF101114" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0,5,0">
+                <Grid>
+                    <Slider Minimum="0" Maximum="18" Value="0" Margin="0,0,15,0" Style="{DynamicResource MahApps.Styles.Slider.Flat}" TickPlacement="Both" Background="#00000000" BorderBrush="#3FFFFFFF" Foreground="#0CFFFFFF"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28.5,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="156,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="241,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="326,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="366,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="409,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="480,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="600,0,0,0"/>
+                    <editor:KeyFrameControl Width="40" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="640,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="#FF101114" Grid.Row="1" Grid.Column="1" Margin="5,0,5,0">
+                <ScrollViewer x:Name="Animator">
+                    <Grid>
+                        <Grid.ContextMenu>
+                            <ContextMenu x:Name="AnimatorContextMenu" x:FieldModifier="public">
+                            </ContextMenu>
+                        </Grid.ContextMenu>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+
+            <Border Background="#101114" Grid.Column="3" Grid.Row="1">
+                <TreeView>
+                    <TreeViewItem Header="Transform" IsExpanded="True">
+                        <TreeViewItem Header="Position" IsExpanded="True">
+                            <Grid>
+                                <TextBlock Text="X" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                                <TextBox Height="10" Width="100" Margin="60,0,25,48" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                                <TextBlock Text="Y" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,35,0,0"/>
+                                <TextBox Height="10" Width="100" Margin="60,32,25,16" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                            </Grid>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Rotation" IsExpanded="True">
+                            <Grid>
+                                <TextBlock Text="Value" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBox Height="10" Width="100" Margin="60,0" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                            </Grid>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Scale" IsExpanded="True">
+                            <Grid>
+                                <TextBlock Text="X" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                                <TextBox Height="10" Width="100" Margin="60,0,25,48" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                                <TextBlock Text="Y" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,35,0,0"/>
+                                <TextBox Height="10" Width="100" Margin="60,32,25,16" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                            </Grid>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Decoration" IsExpanded="True">
+                        <Grid>
+                            <TextBlock Text="Tag" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                            <TextBox Height="10" Width="100" Margin="76,0,84,-3" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#FF131517" BorderBrush="#FF131517"/>
+                        </Grid>
+                    </TreeViewItem>
+                </TreeView>
+            </Border>
         </Grid>
     </Border>
 </Window>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 #nullable disable
@@ -14,6 +16,8 @@ namespace ComposerTrack.Models
         private string name;
         private string description;
         private string author;
+        private List<KeyFrame> keyFrames;
+        private List<DecoData> decorations;
 
         public string ID
         {
@@ -51,8 +55,26 @@ namespace ComposerTrack.Models
                 OnPropertyChanged("Author");
             }
         }
-#nullable enable
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public List<KeyFrame> KeyFrames
+        {
+            get { return keyFrames; }
+            set
+            {
+                keyFrames = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<DecoData> Decorations
+        {
+            get { return decorations; }
+            set
+            {
+                decorations = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

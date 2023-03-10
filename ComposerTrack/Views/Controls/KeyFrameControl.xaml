@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ComposerTrack.Views.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="50">
+             mc:Ignorable="d" Height="40" Width="40">
     <UserControl.Resources>
         <Storyboard x:Key="StoryboardEnter">
             <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
@@ -16,14 +15,14 @@
                 </EasingColorKeyFrame>
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="34">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="30">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CubicEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Height)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="34">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="30">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CubicEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -39,14 +38,14 @@
                 </EasingColorKeyFrame>
             </ColorAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="32">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="28">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CubicEase EasingMode="EaseIn"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Height)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="32">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="28">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <CubicEase EasingMode="EaseIn"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -55,7 +54,7 @@
         </Storyboard>
     </UserControl.Resources>
     <Grid>
-        <Border x:Name="border" Background="#FF8C5925" CornerRadius="5" RenderTransformOrigin="0.5,0.5" Height="32" Width="32">
+        <Border x:Name="border" Background="#FF8C5925" CornerRadius="5" RenderTransformOrigin="0.5,0.5" Height="28" Width="28">
             <Border.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

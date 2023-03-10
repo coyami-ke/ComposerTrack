@@ -1,0 +1,21 @@
+﻿<Window x:Class="ComposerTrack.Views.LoadingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComposerTrack.Views"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:ComposerTrack.ViewModels"
+        Title="LoadingWindow" Height="450" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF101113"/>
+            <GradientStop Color="#FF101113" Offset="1"/>
+            <GradientStop Color="#FF131517" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <TextBlock x:Name="Message" Foreground="#E5FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" FontSize="15"/>
+        <ProgressBar x:Name="Value" HorizontalAlignment="Center" VerticalAlignment="Bottom" Maximum="100" Height="44" Width="500" Margin="60" Background="#FF131517" BorderBrush="#0CFFFFFF" Foreground="#FF559DBF" Style="{DynamicResource MahApps.Styles.ProgressBar}"/>
+    </Grid>
+</Window>

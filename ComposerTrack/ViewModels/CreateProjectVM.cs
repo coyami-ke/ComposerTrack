@@ -31,19 +31,6 @@ namespace ComposerTrack.ViewModels
             {
                 return createCommand ??= new RelayCommand(obj =>
                     {
-                        Data = this.CreateProjectModel;
-                        Sender = this;
-                        EditorWindow window = new(this);
-                        window.Show();
-
-                        if (createProjectModel.ID == "727" && createProjectModel.Name == "727" && createProjectModel.Author == "ARV")
-                        {
-                            MessageBox.Show("THIS IS TWENTY (c) ARV");
-                        }
-                        else if (CreateProjectModel.ID == "PivoGuru" && CreateProjectModel.Name == "sultan69")
-                        {
-                            MessageBox.Show("ВРЕМЯ ПЫЛЕСОСИТЬ!!!");
-                        }
                     });
             }
         }

@@ -7,9 +7,13 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 #nullable disable
 namespace ComposerTrack.Models
 {
+    /// <summary>
+    /// Data for keeping of tiles
+    /// </summary>
     public class TileData : INotifyPropertyChanged
     {
         private float angle;
@@ -18,6 +22,7 @@ namespace ComposerTrack.Models
         private float rotation;
         private Vector2 scale;
         private int opacity;
+        private bool isSelected;
         public int Number
         {
             get { return number; }
@@ -72,11 +77,22 @@ namespace ComposerTrack.Models
                 OnPropertyChanged();
             }
         }
+        public bool IsSelected
+        {
+            get { return isSelected; }
+            set
+            {
+                isSelected = value;
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(PropertyChanged, new PropertyChangedEventArgs(prop));
         }
+
+        private static readonly (int, Thickness) value = (0, new Thickness());
     }
 }

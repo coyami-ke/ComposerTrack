@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace ComposerTrack.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddTilesWindow.xaml
+    /// Логика взаимодействия для SettingsWindow.xaml
     /// </summary>
-    public partial class AddTilesWindow : Window
+    public partial class SettingsWindow : Window
     {
-        public AddTilesWindow()
+        public SettingsWindow()
         {
             InitializeComponent();
-        }
-
-        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
         }
     }
 }

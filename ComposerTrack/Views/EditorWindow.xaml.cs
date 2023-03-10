@@ -11,10 +11,9 @@ namespace ComposerTrack.Views
 {
     public partial class EditorWindow : Window
     {
-        public EditorWindow(IWindowData<CreateProjectModel> data)
+        public EditorWindow()
         {
             InitializeComponent();
-            DataContext = new EditorVM(data);
         }
     }
 }
