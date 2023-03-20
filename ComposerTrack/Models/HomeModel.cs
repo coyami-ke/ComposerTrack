@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,34 +10,11 @@ using System.Threading.Tasks;
 #nullable disable
 namespace ComposerTrack.Models
 {
-    public class HomeModel : INotifyPropertyChanged
+    public partial class HomeModel : ObservableObject
     {
+        [ObservableProperty]
         private string nameProject;
+        [ObservableProperty]
         private string pathToProject;
-
-        public string NameProject
-        {
-            get => nameProject;
-            set
-            {
-                nameProject = value;
-                OnPropertyChanged("NameProject");
-            }
-        }
-        public string PathToProject
-        {
-            get => pathToProject;
-            set
-            {
-                pathToProject = value;
-                OnPropertyChanged("PathToProject");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

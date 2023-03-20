@@ -6,20 +6,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
 #nullable disable
 namespace ComposerTrack.Models
 {
-
-    public partial class AboutModel : ObservableObject
+    public partial class Project : ObservableObject
     {
         [ObservableProperty]
-        private string nameProgram;
+        private string name;
         [ObservableProperty]
-        private Version versionProgram;
+        private string iD;
         [ObservableProperty]
-        private string authorProgram;
-        [ObservableProperty]
-        private string descriptionProgram;
+        private string author;
     }
 }

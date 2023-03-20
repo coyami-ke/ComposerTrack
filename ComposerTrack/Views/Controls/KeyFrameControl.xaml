@@ -4,74 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ComposerTrack.Views.Controls"
-             mc:Ignorable="d" Height="40" Width="40">
+             xmlns:dependency="clr-namespace:ComposerTrack.Models"
+             mc:Ignorable="d" Height="40" Width="80">
     <UserControl.Resources>
-        <Storyboard x:Key="StoryboardEnter">
+        <dependency:KeyFrameControlModel Text="Unknown" x:Key="Model"/>
+        <Storyboard x:Key="StoryBoardEnter">
             <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.1000000" Value="#FFC77A2B">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
+                <EasingColorKeyFrame KeyTime="00:00:00.1000000" Value="#FF405C77"/>
             </ColorAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="30">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Height)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="30">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="StoryboardOver">
+        <Storyboard x:Key="StoryBoardLeave">
             <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="00:00:00.1000000" Value="#FF8C5925">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseIn"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
+                <EasingColorKeyFrame KeyTime="00:00:00.1000000" Value="#FF293846"/>
             </ColorAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Width)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="28">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseIn"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(FrameworkElement.Height)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="28">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CubicEase EasingMode="EaseIn"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
-    <Grid>
-        <Border x:Name="border" Background="#FF8C5925" CornerRadius="5" RenderTransformOrigin="0.5,0.5" Height="28" Width="28">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="45"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
+    <Grid DataContext="{StaticResource Model}">
+        <Border x:Name="border" CornerRadius="5" Background="#FF293846">
+            <Grid>
+                <TextBlock Text="{Binding Text}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#E0000000"/>
+            </Grid>
             <Border.Triggers>
-                <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger RoutedEvent="MouseDown">
                     <EventTrigger.Actions>
-                        <BeginStoryboard Storyboard="{DynamicResource StoryboardEnter}"/>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="MouseLeave">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard Storyboard="{DynamicResource StoryboardOver}"/>
+                        
                     </EventTrigger.Actions>
                 </EventTrigger>
             </Border.Triggers>

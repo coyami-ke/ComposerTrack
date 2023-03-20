@@ -1,18 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using ComposerTrack.Models;
+using ComposerTrack.Views.Controls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-#nullable disable
-namespace ComposerTrack.ViewModels
+namespace ComposerTrack.Models
 {
-    public class AboutVM : ObservableObject
+    public partial class TimeLine : ObservableObject
     {
     }
 }

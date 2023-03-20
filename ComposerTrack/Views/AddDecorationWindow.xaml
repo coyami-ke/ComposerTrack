@@ -1,0 +1,26 @@
+﻿<Window x:Class="ComposerTrack.Views.AddDecorationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComposerTrack.Views"
+        mc:Ignorable="d"
+        Title="ComposerTrack - Add decoration" Height="200" Width="400" WindowStartupLocation="CenterOwner" WindowStyle="None" Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Background="#FF131517">
+            <TextBlock Text="ComposerTrack | Add decoration" Foreground="#99FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+        </Border>
+        <Border Grid.Row="1" Background="#FF101113">
+            <Grid>
+                <TextBlock Text="Tag" Foreground="#E5FFFFFF" FontSize="16" Margin="10,116,-10,-116"/>
+                <TextBox Width="200" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#E5FFFFFF" BorderBrush="#05FFFFFF"
+                         Style="{DynamicResource MahApps.Styles.TextBox}" Background="#02FFFFFF" Text="{Binding Project.Author}" Margin="53,0,0,10"/>
+                <Button Style="{DynamicResource ButtonStyle}" Content="Add" Margin="258,116,10,10" FontSize="12"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

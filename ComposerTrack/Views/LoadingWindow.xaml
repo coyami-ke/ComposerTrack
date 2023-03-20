@@ -16,6 +16,6 @@
     </Window.Background>
     <Grid>
         <TextBlock x:Name="Message" Foreground="#E5FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" FontSize="15"/>
-        <ProgressBar x:Name="Value" HorizontalAlignment="Center" VerticalAlignment="Bottom" Maximum="100" Height="44" Width="500" Margin="60" Background="#FF131517" BorderBrush="#0CFFFFFF" Foreground="#FF559DBF" Style="{DynamicResource MahApps.Styles.ProgressBar}"/>
+        <ProgressBar x:Name="Value" HorizontalAlignment="Center" VerticalAlignment="Bottom" Maximum="100" Height="44" Width="500" Margin="60" Background="#FF151719" BorderBrush="#0CFFFFFF" Foreground="#FF559DBF" Style="{DynamicResource MahApps.Styles.ProgressBar}"/>
     </Grid>
 </Window>

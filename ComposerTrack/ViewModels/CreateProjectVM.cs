@@ -1,4 +1,8 @@
-﻿using ComposerTrack.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using ComposerTrack.Models;
+using ComposerTrack.ViewModels.Messangers;
 using ComposerTrack.Views;
 using System;
 using System.Collections.Generic;
@@ -11,43 +15,16 @@ using System.Windows;
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class CreateProjectVM : INotifyPropertyChanged, IWindowData<CreateProjectModel>
+    public partial class CreateProjectVM : ObservableObject
     {
-        private CreateProjectModel createProjectModel;
-        private RelayCommand createCommand;
-
-        public CreateProjectModel CreateProjectModel
+        [ObservableProperty]
+        private Project project;
+        [RelayCommand]
+        private void CreateProject()
         {
-            get => createProjectModel;
-            set
-            {
-                createProjectModel = value;
-                OnPropertyChanged("CreateProjectModel");
-            }
-        }
-        public RelayCommand CreateCommand
-        {
-            get
-            {
-                return createCommand ??= new RelayCommand(obj =>
-                    {
-                    });
-            }
-        }
-
-        public CreateProjectModel Data { get; set; }
-        public object Sender { get; set; }
-
-        public CreateProjectVM()
-        {
-            CreateProjectModel = new();
-        }
-
-#nullable enable
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            EditorWindow window = new();
+            window.Show();
+            WeakReferenceMessenger.Default.Send<CreateProjectMessanger>(new CreateProjectMessanger(this.Project));
         }
     }
 }

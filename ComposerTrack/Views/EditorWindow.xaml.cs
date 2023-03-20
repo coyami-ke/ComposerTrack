@@ -14,6 +14,7 @@ namespace ComposerTrack.Views
         public EditorWindow()
         {
             InitializeComponent();
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
     }
 }

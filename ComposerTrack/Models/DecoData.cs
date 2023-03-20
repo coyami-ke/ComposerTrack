@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,114 +10,27 @@ using System.Threading.Tasks;
 #nullable disable
 namespace ComposerTrack.Models
 {
-    public class DecoData : INotifyPropertyChanged
+    public partial class DecoData : ObservableObject
     {
+        [ObservableProperty]
         private string tag;
+        [ObservableProperty]
         private int tile;
+        [ObservableProperty]
         private string source;
+        [ObservableProperty]
         private Vector2 position;
+        [ObservableProperty]
         private float rotation;
+        [ObservableProperty]
         private Vector2 scale;
+        [ObservableProperty]
         private float opacity;
+        [ObservableProperty]
         private string color;
+        [ObservableProperty]
         private int beat;
+        [ObservableProperty]
         private bool isSelected;
-
-        public string Tag
-        {
-            get { return tag; }
-            set
-            {
-                tag = value;
-                OnPropertyChanged();
-            }
-        }
-        public int Tile
-        {
-            get { return tile; }
-            set
-            {
-                tile = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Source
-        {
-            get { return source; }
-            set
-            {
-                source = value;
-                OnPropertyChanged();
-            }
-        }
-        public Vector2 Position
-        {
-            get { return position; }
-            set
-            {
-                position = value;
-                OnPropertyChanged();
-            }
-        }
-        public float Rotation
-        {
-            get { return rotation; }
-            set
-            {
-                rotation = value;
-                OnPropertyChanged();
-            }
-        }
-        public Vector2 Scale
-        {
-            get { return scale; }
-            set
-            {
-                scale = value;
-                OnPropertyChanged();
-            }
-        }
-        public float Opacity
-        {
-            get { return opacity; }
-            set
-            {
-                opacity = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Color
-        {
-            get { return color; }
-            set
-            {
-                color = value;
-                OnPropertyChanged();
-            }
-        }
-        public int Beat
-        {
-            get { return beat; }
-            set
-            {
-                beat = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool IsSelected
-        {
-            get { return isSelected; }
-            set
-            {
-                isSelected = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

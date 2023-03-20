@@ -1,4 +1,6 @@
-﻿using ComposerTrack.Easing;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using ComposerTrack.Easing;
 using ComposerTrack.Models;
 using ComposerTrack.Views;
 using Newtonsoft.Json;
@@ -20,68 +22,15 @@ namespace ComposerTrack.ViewModels
     /// <summary>
     /// HomeVM.
     /// </summary>
-    public class HomeVM : INotifyPropertyChanged
+    public partial class HomeVM : ObservableObject
     {
-        private HomeModel selectedModel;
-        private RelayCommand createProjectCommand;
-        private ObservableCollection<HomeModel> homeModels;
-
-        /// <summary>
-        /// Command for button Create project.
-        /// </summary>
-        public RelayCommand CreateProjectCommand
+        [ObservableProperty]
+        private HomeModel projects;
+        [RelayCommand]
+        private void CreateProjectCommand()
         {
-            get
-            {
-                return createProjectCommand ??= new RelayCommand(obj =>
-                {
-                    CreateProjectWindow window = new();
-                    window.ShowDialog();
-
-                });
-            }
-        }
-        /// <summary>
-        /// Selected project
-        /// </summary>
-        public HomeModel SelectedModel
-        {
-            get => selectedModel;
-            set
-            {
-                selectedModel = value;
-                OnPropertyChanged("SelectedModel");
-            }
-        }
-        /// <summary>
-        /// List of created projects
-        /// </summary>
-        public ObservableCollection<HomeModel> HomeModels
-        {
-            get { return homeModels; }
-            set
-            {
-                homeModels = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public HomeVM()
-        {
-            if (!File.Exists("projects.json")) return;
-            FileStream stream = new("projects.json", FileMode.Append);
-            StreamReader reader = new(stream);
-            JsonSerializer serializer = new();
-            HomeModels = (ObservableCollection<HomeModel>)serializer.Deserialize(reader, typeof(ObservableCollection<HomeModel>));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            CreateProjectWindow window = new();
+            window.ShowDialog();
         }
     }
 }

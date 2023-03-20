@@ -12,67 +12,31 @@ using System.Windows.Media.Animation;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using ComposerTrack.ViewModels.Messangers;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Wpf.Ui.Mvvm.Interfaces;
 
 #nullable disable
 namespace ComposerTrack.ViewModels
 {
-    public class EditorVM : INotifyPropertyChanged
+    public partial class EditorVM : ObservableRecipient
     {
+        [ObservableProperty]
         private EditorModel editorModel;
 
-        private RelayCommand addDecoCommand;
-        private RelayCommand removeDecoCommand;
-        private RelayCommand addKeyFrame;
-        private RelayCommand removeKeyFrame;
-        private RelayCommand selectDeco;
-        private RelayCommand selectAllDecoCommand;
+        [ObservableProperty]
+        private Project informationProject;
 
-        public RelayCommand AddDecoCommand;
-
-        public EditorModel EditorModel
+        protected override void OnActivated()
         {
-            get { return editorModel; }
-            set
-            {
-                editorModel = value;
-                OnPropertyChanged();
-            }
+            // Using a method group...
+            Messenger.Register<EditorVM, CreateProjectMessanger>(this, (r, m) => r.Receive(m));
         }
 
-        public RelayCommand SelectDecoCommand
+        private void Receive(CreateProjectMessanger message)
         {
-            get
-            {
-                return selectDeco ??= new RelayCommand(obj =>
-                {
-                    string tag = obj as string;
-                    for (int i = 0; EditorModel.Decorations.Count > 0; i++)
-                    {
-                        EditorModel.Decorations[i].IsSelected = false;
-                        if (EditorModel.Decorations[i].Tag == tag) EditorModel.Decorations[i].IsSelected = true;
-                    }
-                });
-            }
-        }
-
-        public RelayCommand SelectAllDecoCommand
-        {
-            get
-            {
-                return selectAllDecoCommand ??= new RelayCommand(obj =>
-                {
-                    for (int i = 0; EditorModel.Decorations.Count > 0; i++)
-                    {
-                        EditorModel.Decorations[i].IsSelected = true;
-                    }
-                });
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+             InformationProject = message.Value;
         }
     }
 }

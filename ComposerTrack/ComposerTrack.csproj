@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	<PublishReadyToRun>true</PublishReadyToRun>
+	<SelfContained>true</SelfContained>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	<PublishSingleFile>true</PublishSingleFile>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows7.0</TargetFramework>
     <Nullable>disable</Nullable>
@@ -41,9 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\GUI\" />
     <Folder Include="ViewModels\Editor\" />
-    <Folder Include="ViewModels\Messagers\" />
-    <Folder Include="Views\Styles\" />
   </ItemGroup>
 </Project>

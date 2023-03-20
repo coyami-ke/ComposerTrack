@@ -15,17 +15,18 @@
                 <RowDefinition Height="48"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Border Background="#FF101113">
+            <Border Background="#FF131517">
+                <TextBlock Text="ComposerTrack | Create project" Foreground="#99FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
             </Border>
-            <Border Grid.Row="1" Background="#FF101113" CornerRadius="5" Margin="5,9,5,1">
+            <Border Grid.Row="1" Background="#FF101113">
                 <Grid>
-                    <Button Style="{DynamicResource MaterialDesignOutlinedButton}" Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Height="40" Width="170" Foreground="#E5FFFFFF" BorderBrush="#FF34799E" FontWeight="Normal"/>
+                    <Button Style="{DynamicResource ButtonStyle}" Content="Create project" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Height="40" Width="170" Foreground="#E5FFFFFF" BorderBrush="#FF34799E" FontWeight="Normal" Command="{Binding }"/>
                     <TextBlock Text="Name project" Foreground="White" FontSize="16" Margin="20,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,93,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.Name}"/>
+                    <TextBox Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,93,0,0" Foreground="#E5FFFFFF" BorderBrush="#05FFFFFF" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#02FFFFFF" Text="{Binding Project.Name}"/>
                     <TextBlock Text="ID" Foreground="White" FontSize="16" Margin="20,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,171,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.ID}"/>
+                    <TextBox Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,176,0,0" Foreground="#E5FFFFFF" BorderBrush="#05FFFFFF" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#02FFFFFF" Text="{Binding Project.ID}"/>
                     <TextBlock Text="Author" Foreground="White" FontSize="16" Margin="20,243,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBox FontSize="20" Height="30" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,264,0,0" Foreground="#E5FFFFFF" BorderBrush="#7FFFFFFF" Style="{DynamicResource TextBoxStyle}" Background="#05FFFFFF" Text="{Binding CreateProjectModel.Author}"/>
+                    <TextBox Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,269,0,0" Foreground="#E5FFFFFF" BorderBrush="#05FFFFFF" Style="{DynamicResource MahApps.Styles.TextBox}" Background="#02FFFFFF" Text="{Binding Project.Author}"/>
                 </Grid>
             </Border>
         </Grid>
