@@ -71,7 +71,7 @@ namespace ComposerTrack.ViewModels
             }
         }
         [RelayCommand]
-        private DecoData GetSelectedDecoration()
+        private DecoData GetSelectedDecoration(string tag)
         {
 
         }
