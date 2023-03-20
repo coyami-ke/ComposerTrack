@@ -70,6 +70,10 @@ namespace ComposerTrack.ViewModels
                 }
             }
         }
+        private DecoData GetSelectedDecoration()
+        {
+
+        }
 
         protected override void OnActivated()
         {
