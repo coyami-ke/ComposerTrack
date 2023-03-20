@@ -78,7 +78,6 @@ namespace ComposerTrack.ViewModels
 
         protected override void OnActivated()
         {
-            // Using a method group...
             Messenger.Register<EditorVM, CreateProjectMessanger>(this, (r, m) => r.Receive(m));
             Messenger.Register<EditorVM, AddDecorationMessanger>(this, (r, m) => r.Receive(m));
         }
