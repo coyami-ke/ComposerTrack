@@ -27,7 +27,7 @@ namespace ComposerTrack.ViewModels
         [ObservableProperty]
         private HomeModel projects;
         [RelayCommand]
-        private void CreateProjectCommand()
+        private void createProjectCommand()
         {
             CreateProjectWindow window = new();
             window.ShowDialog();

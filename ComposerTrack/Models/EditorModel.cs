@@ -20,5 +20,7 @@ namespace ComposerTrack.Models
         private ObservableCollection<DecoData> decorations;
         [ObservableProperty]
         private ObservableCollection<KeyFrameControl> keyFrameControls;
+        [ObservableProperty]
+        private int durationAnimtion;
     }
 }
