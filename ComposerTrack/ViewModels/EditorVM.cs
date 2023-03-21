@@ -27,7 +27,11 @@ namespace ComposerTrack.ViewModels
         private EditorModel editorModel;
         [ObservableProperty]
         private Project informationProject;
+        [ObservableProperty]
+        private BufferModel buffer;
 
+
+        // Commands //
         [RelayCommand]
         private void SelectAllDecorations()
         {
@@ -64,18 +68,35 @@ namespace ComposerTrack.ViewModels
                 {
                     KeyFrame keyFrame = new();
                     keyFrame.Tag = tagDecoration;
+                    keyFrame.Beat = EditorModel.SelectedTime;
 
                     KeyFrameControl control = new();
                     control.Tag = tagDecoration;
                 }
             }
+            if (Buffer.KeyFrames.Count() =< Buffer.Count)
+            {
+
+            }
+            Buffer.KeyFrames.Add(EditorModel.KeyFrames);
         }
         [RelayCommand]
-        private DecoData GetSelectedDecoration(string tag)
+        private void DeleteKeyFrame(string id)
         {
-
+            for (int i = 0; i < EditorModel.KeyFrames.Count; i++)
+            {
+                if (EditorModel.KeyFrames[i].ID == id)
+                {
+                    EditorModel.KeyFrames.RemoveAt(i);
+                    for (int s = 0; i < EditorModel.KeyFrameControls.Count; s++)
+                    {
+                        if (EditorModel.KeyFrames[i].ID == EditorModel.KeyFrameControls[s].ID) EditorModel.KeyFrameControls.RemoveAt(s);
+                    }
+                }
+            }
         }
-
+        
+        // Methods //
         protected override void OnActivated()
         {
             Messenger.Register<EditorVM, CreateProjectMessanger>(this, (r, m) => r.Receive(m));
@@ -90,6 +111,13 @@ namespace ComposerTrack.ViewModels
         private void Receive(CreateProjectMessanger message)
         {
              InformationProject = message.Value;
+        }
+        public void AddKeyFrames(KeyFrame[] keyFrames)
+        {
+            foreach (KeyFrame keyFrame in keyFrames)
+            {
+                EditorModel.KeyFrames.Add(keyFrame);
+            }
         }
     }
 }

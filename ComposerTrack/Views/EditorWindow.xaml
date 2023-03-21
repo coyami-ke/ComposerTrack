@@ -31,10 +31,15 @@
             <Border Background="#FF131517" Grid.ColumnSpan="3">
                 <Menu>
                     <MenuItem Header="File">
-                        <MenuItem Header="New"></MenuItem>
-                        <MenuItem Header="Open"></MenuItem>
+                        <MenuItem Header="New...">
+                            <MenuItem Header="Decoration..." Command="{Binding AddDecorationCommand}"/>
+                            <MenuItem Header="KeyFrame..." Command="{Binding AddKeyFrameCommand}"/>
+                        </MenuItem>
+                        <MenuItem Header="Open...">
+                            <MenuItem Header="Project..."/>
+                        </MenuItem>
                         <MenuItem Header="Save"></MenuItem>
-                        <MenuItem Header="Save As"></MenuItem>
+                        <MenuItem Header="Save As..."></MenuItem>
                         <Separator/>
                         <MenuItem Header="Close"></MenuItem>
                     </MenuItem>
@@ -44,7 +49,7 @@
                         <MenuItem Header="Cut"></MenuItem>
                         <MenuItem Header="Copy"></MenuItem>
                         <MenuItem Header="Paste"></MenuItem>
-                        <MenuItem Header="Select All"></MenuItem>
+                        <MenuItem Header="Select All" Command="{Binding SelectAllDecorationsCommand}"></MenuItem>
                     </MenuItem>
                 </Menu>
             </Border>
@@ -60,11 +65,16 @@
             </Border>
             <!--TimeLine-->
             <Border Background="#FF101114" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="5,0,5,0">
-                <Canvas>
-                    
-                </Canvas>
+                <Grid>
+                    <Grid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add keyframe for selected decorations" Command="{Binding AddKeyFrameCommand}"/>
+                            <MenuItem Header="Delete keyframe" Command="{Binding}"
+                        </ContextMenu>
+                    </Grid.ContextMenu>
+                </Grid>
             </Border>
-            <Border Background="#FF101114" Grid.Row="1" Grid.Column="1" Margin="5,5,5,0">
+            <Border Background="#FF101114" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5">
                 <ScrollViewer x:Name="Animator">
                     <Canvas>
                         <Canvas.ContextMenu>

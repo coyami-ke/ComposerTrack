@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using ComposerTrack.Models;
+using ComposerTrack.ViewModels.Messangers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,5 +18,15 @@ namespace ComposerTrack.ViewModels
 {
     public partial class AddDecorationVM : ObservableObject
     {
+        [ObservableProperty]
+        private string tag;
+
+        [RelayCommand]
+        private void Add()
+        {
+            DecoData deco = new();
+            deco.Tag = Tag;
+            WeakReferenceMessenger.Default.Send<AddDecorationMessanger>(new AddDecorationMessanger(deco));
+        }
     }
 }
