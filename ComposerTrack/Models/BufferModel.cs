@@ -14,7 +14,5 @@ namespace ComposerTrack.Models
         private ObservableCollection<ObservableCollection<DecoData>> decorations;
         [ObservableProperty]
         private ObservableCollection<ObservableCollection<KeyFrame>> keyFrames;
-        [ObservableProperty]
-        private int count;
     }
 }

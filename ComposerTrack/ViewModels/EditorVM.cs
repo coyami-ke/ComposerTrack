@@ -74,7 +74,7 @@ namespace ComposerTrack.ViewModels
                     control.Tag = tagDecoration;
                 }
             }
-            if (Buffer.KeyFrames.Count() =< Buffer.Count)
+            if (Buffer.KeyFrames.Count =< 20)
             {
 
             }
